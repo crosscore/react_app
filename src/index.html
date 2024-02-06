@@ -1,0 +1,42 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React App</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+            function Header({ title }) {
+                return <h1>{title ? title : 'Default title'}</h1>;
+            }
+            
+            function Greeting(props) {
+                return <h4>Hello, {props.name}!</h4>;
+            }
+
+            function HomePage() {
+                const name = ['React', 'JavaScript', 'Library'];
+                return (
+                    <>
+                        <Header title='React App' />
+                        <Greeting name='Yuu' />
+                        <p>React is a JavaScript library for building user interfaces.</p>
+                        <ul>
+                            {name.map((name) => (
+                                <li key={name}>{name}</li>
+                            ))}
+                        </ul>
+                        <button onClick={() => alert('Hello, React!')}>Click me</button>
+                    </>
+                );
+            }
+            const app = document.getElementById('app');
+            const root = ReactDOM.createRoot(app);
+            root.render(<HomePage />);
+        </script>
+    </body>
+</html>
